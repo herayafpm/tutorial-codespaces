@@ -1,0 +1,11 @@
+{
+    "name": "codespaces-php",
+    "dockerComposeFile": ["docker-compose.yml"],
+    "workspaceFolder": "/workspace",
+    "service": "app",
+    "shutdownAction": "stopCompose",
+    "settings": {
+        "#terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "forwardPorts": [80]
+}
