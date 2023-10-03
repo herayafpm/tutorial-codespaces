@@ -8,7 +8,7 @@ services:
     ports:
       - 80:80
     environment:
-      APACHE_DOCUMENT_ROOT: /workspace
+      APACHE_DOCUMENT_ROOT: /workspace/public
       PHP_EXTENSION_XDEBUG: 1
       PHP_EXTENSION_MYSQLI: 1
       PHP_EXTENSION_PDO_MYSQLI: 1

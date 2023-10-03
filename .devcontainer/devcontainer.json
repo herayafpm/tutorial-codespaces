@@ -8,6 +8,7 @@
         "#terminal.integrated.shell.linux": "/bin/bash"
     },
     "forwardPorts": [80,3306,8081],
+    "postCreateCommand": "cp env .env && composer install",
     "portsAttributes": {
         "80": {
             "label": "HTTP"
