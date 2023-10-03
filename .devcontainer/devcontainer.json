@@ -7,5 +7,16 @@
     "settings": {
         "#terminal.integrated.shell.linux": "/bin/bash"
     },
-    "forwardPorts": [80]
+    "forwardPorts": [80,3306,8081],
+    "portsAttributes": {
+        "80": {
+            "label": "HTTP"
+        },
+        "3306": {
+            "label": "MariaDB"
+        },
+        "8081": {
+            "label": "PHPMYadmin"
+        }
+    }
 }

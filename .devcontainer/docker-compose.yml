@@ -4,7 +4,34 @@ services:
     build: ./
     volumes:
       - ../:/workspace:cached
+    tty: true
     ports:
       - 80:80
     environment:
       APACHE_DOCUMENT_ROOT: /workspace
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_EXTENSION_MYSQLI: 1
+      PHP_EXTENSION_PDO_MYSQLI: 1
+      PHP_EXTENSION_INTL: 1
+      PHP_EXTENSION_GD: 1
+      PHP_INI_POST_MAX_SIZE: 256MB
+      PHP_INI_UPLOAD_MAX_FILESIZE: 256MB
+  db:
+    image: mariadb:10.3
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MYSQL_DATABASE: "mydb"
+    volumes:
+      - "./mariadb/data:/var/lib/mysql/data"
+      - "./mariadb/logs:/var/lib/mysql/logs"
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - UPLOAD_LIMIT=300M
+      - PMA_ARBITARY=1
